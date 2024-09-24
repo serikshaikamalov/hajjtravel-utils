@@ -119,3 +119,31 @@ export const convertToNestedJSON = (input) => {
         return acc
     }, {})
 }
+
+/**
+ * @description Used to update value of form fields 
+  fields: [
+   {
+      key: "name",
+      label: "Name",
+      required: true,
+      inputType: inputTypeEnum.text,
+      value: ""
+    },
+    etc
+    ]
+ */
+export const updateForm = (fields, key, property, value) => {
+    if (Array.isArray(fields)) {
+        return fields.map(f => {
+            if (f.key === key) {
+                return {
+                    ...f,
+                    [property]: value
+                }
+            }
+            return f
+        })
+    }
+    throw new Error('Bad input')
+}

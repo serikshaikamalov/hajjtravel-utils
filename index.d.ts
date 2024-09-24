@@ -6,4 +6,5 @@ declare module 'hajjtravel-utils' {
     export function objectToPlain(obj: any, parent?: string, result?: any): any;
     export function isEmailAddress(email: string): boolean;
     export function convertToNestedJSON(input: object): object;
+    export function updateForm(fields: any[], key: string, property: string, value: any): any[];
 }
