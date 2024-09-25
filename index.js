@@ -70,7 +70,9 @@ export const objectToPlain = (obj, parent = "", result = {}) => {
         if (parent) {
             k = `${parent}.${k}`
         }
-        if (typeof v == "object") {
+        if (Array.isArray(v)) {
+            result[`${k}`] = v
+        } else if (typeof v == "object") {
             return objectToPlain(v, k, result)
         } else {
             result[`${k}`] = v
