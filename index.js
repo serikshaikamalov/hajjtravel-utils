@@ -149,3 +149,11 @@ export const updateForm = (fields, key, property, value) => {
     }
     throw new Error('Bad input')
 }
+
+function sleep(duration) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve();
+        }, duration);
+    });
+}
