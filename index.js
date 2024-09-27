@@ -33,6 +33,7 @@ export const isImage = (file) => {
 }
 
 /**
+ * Переводит вложенность в плоском формате(plain format) ie: user.IDCard.name
  * Converts:
  * const obj = {
     a: 1,
