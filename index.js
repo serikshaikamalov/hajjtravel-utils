@@ -1,13 +1,3 @@
-// phone: (777)200-1991
-// В базе данных будет хранится 77772001991
-// На UI будет такой формат: (777)200-1991
-export const phoneToBackendFormat = (phone, countryCode = '7') => {
-    if (!phone) return;
-    // Удаляет скобки, пробеи и февизы
-    const clearedPhone = String(phone).replace(/[()-\s]/g, '').trim()
-    return `${countryCode}${clearedPhone}`
-};
-
 // Remove whitespaces, scopes etc
 // Plain phoneNumber
 // (777) 200-1991 => 7772001991. Note: Stores withouh country code
@@ -186,3 +176,13 @@ export const phoneToUI = (phone, prefix = 7, mask = "(...)...-....") => {
     // Для каждой страны есть своя маска
     return String(phone).replace(new RegExp(`^${prefix}`, 'g'), '').replace(/(\d{3})(\d{3})(\d{4})/, "($1)$2-$3");
 }
+
+// phone: (777)200-1991
+// В базе данных будет хранится 77772001991
+// На UI будет такой формат: (777)200-1991
+export const phoneToBackendFormat = (phone, countryCode = '7') => {
+    if (!phone) return;
+    // Удаляет скобки, пробеи и февизы
+    const clearedPhone = String(phone).replace(/[()-\s]/g, '').trim()
+    return `${countryCode}${clearedPhone}`
+};
