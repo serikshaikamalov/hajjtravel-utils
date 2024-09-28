@@ -161,10 +161,27 @@ export const updateForm = (fields, key, property, value) => {
     throw new Error('Bad input')
 }
 
-function sleep(duration) {
+// For demo request
+export function sleep(duration) {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve();
         }, duration);
     });
+}
+
+export function groupBy(arr, key) {
+    return arr.reduce(function (acc, x) {
+        (acc[x[key]] = acc[x[key]] || []).push(x);
+        return acc;
+    }, {});
+}
+
+
+/**
+ * Converts 7772001991 to (777)200-1991 
+ */
+export const phoneToUI = (phone, mask = "(...)...-....") => {
+    // Для каждой страны есть своя маска
+    return String(phone).replace(/(\d{3})(\d{3})(\d{4})/, "($1)$2-$3");
 }

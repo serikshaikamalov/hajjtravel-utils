@@ -8,4 +8,7 @@ declare module 'hajjtravel-utils' {
     export function convertToNestedJSON(input: object): object;
     export function updateForm(fields: any[], key: string, property: string, value: any): any[];
     export function toPlainPhoneNumber(phone: string): string;
+    export function phoneToUI(phone: string, mask: string): string;
+    export function groupBy(arr: any[], key: string): Object;
+    export function sleep(duration: number): Promise;
 }
