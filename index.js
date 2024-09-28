@@ -180,8 +180,9 @@ export function groupBy(arr, key) {
 
 /**
  * Converts 7772001991 to (777)200-1991 
+ * if you pass prefix it will be removed
  */
-export const phoneToUI = (phone, mask = "(...)...-....") => {
+export const phoneToUI = (phone, prefix = 7, mask = "(...)...-....") => {
     // Для каждой страны есть своя маска
-    return String(phone).replace(/(\d{3})(\d{3})(\d{4})/, "($1)$2-$3");
+    return String(phone).replace(new RegExp(`^${prefix}`, 'g'), '').replace(/(\d{3})(\d{3})(\d{4})/, "($1)$2-$3");
 }
