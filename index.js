@@ -1,11 +1,21 @@
 // phone: (777)200-1991
-// В базе данных будет хранится +77772001991
+// В базе данных будет хранится 77772001991
 // На UI будет такой формат: (777)200-1991
 export const phoneToBackendFormat = (phone, countryCode = '7') => {
     if (!phone) return;
     // Удаляет скобки, пробеи и февизы
     const clearedPhone = String(phone).replace(/[()-\s]/g, '').trim()
     return `${countryCode}${clearedPhone}`
+};
+
+// Remove whitespaces, scopes etc
+// Plain phoneNumber
+// (777) 200-1991 => 7772001991. Note: Stores withouh country code
+export const toPlainPhoneNumber = (phone) => {
+    if (!phone) return;
+    // Удаляет скобки, пробеи и февизы
+    const clearedPhone = String(phone).replace(/[()-\s]/g, '').trim()
+    return clearedPhone
 };
 
 export const isFileBigger = (file) => {
