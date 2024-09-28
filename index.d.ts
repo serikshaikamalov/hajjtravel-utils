@@ -7,4 +7,5 @@ declare module 'hajjtravel-utils' {
     export function isEmailAddress(email: string): boolean;
     export function convertToNestedJSON(input: object): object;
     export function updateForm(fields: any[], key: string, property: string, value: any): any[];
+    export function toPlainPhoneNumber(phone: string): string;
 }
