@@ -1,4 +1,4 @@
-import { fileToBuffer } from "./file-utils";
+import { fileToBuffer } from "hajjtravel-utils/file-utils";
 
 /**
  * Used to upload files to Firebase Storage. 

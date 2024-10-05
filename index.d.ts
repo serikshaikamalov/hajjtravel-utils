@@ -10,5 +10,5 @@ declare module 'hajjtravel-utils' {
     export function toPlainPhoneNumber(phone: string): string;
     export function phoneToUI(phone: string, mask: string): string;
     export function groupBy(arr: any[], key: string): Object;
-    export function sleep(duration: number): Promise;
+    export function sleep(duration: number): Promise<any>;
 }
