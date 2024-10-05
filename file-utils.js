@@ -9,6 +9,6 @@ export async function fileToBuffer(fileInput) {
         const fileBuffer = Buffer.from(arrayBuffer)
         return fileBuffer
     } else {
-        throw new Error('Wrong fileInput type')
+        throw new Error('Wrong fileInput type: Should be File type')
     }
 }
