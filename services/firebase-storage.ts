@@ -14,11 +14,11 @@ export class FirebaseStorageService {
     /**
      * @return a path to a saved file
      * @param fileInput 
-     * @param fileName 
+     * @param path - a path to file 
      * @returns 
      */
-    async upload(fileInput: File, fileName: string): Promise<string> {
-        console.log("Upload:", { fileInput, fileName });
+    async upload(fileInput: File, path: string): Promise<string> {
+        console.log("Upload:", { fileInput, path });
         console.log('fileInput instanceOf File:', fileInput instanceof File)
         if (!this._bucket) {
             throw new Error('No bucket provided')
@@ -30,6 +30,9 @@ export class FirebaseStorageService {
             }
 
             if (fileInput instanceof File) {
+                const [_, ext] = String(fileInput.type).split('/')
+                const fileName = `${path}/${new Date().getTime()}.${ext}`
+
                 const fileBuffer = await fileToBuffer(fileInput)
                 const fileRef = this._bucket.file(fileName)
 
