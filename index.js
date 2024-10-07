@@ -63,7 +63,10 @@ Result:  {
 }
  */
 export const objectToPlain = (obj, parent = "", result = {}) => {
-    if (typeof obj !== "object") {
+    if(!obj){
+        return null
+    }
+    if (Object.keys(obj) > 0) {
         return null
     }
 
