@@ -63,7 +63,7 @@ Result:  {
 }
  */
 export const objectToPlain = (obj, parent = "", result = {}) => {
-    if(!obj){
+    if (!obj) {
         return null
     }
     if (Object.keys(obj) > 0) {
@@ -189,3 +189,29 @@ export const phoneToBackendFormat = (phone, countryCode = '7') => {
     const clearedPhone = String(phone).replace(/[()-\s]/g, '').trim()
     return `${countryCode}${clearedPhone}`
 };
+
+
+/**
+ * Получаем только номер без страны
+ */
+export function getPhoneNumber(fullPhoneNumber, countryCode = 7) {
+    if (!fullPhoneNumber || !countryCode) {
+        return ""
+    }
+
+    const result = []
+    const fullPhoneNumberArray = fullPhoneNumber.split('')
+    const countryCodeArray = String(countryCode).split('')
+
+    for (let i = 0; i < fullPhoneNumberArray.length; i++) {
+        if (countryCodeArray[i] === fullPhoneNumberArray[i]) {
+        } else {
+            result.push(fullPhoneNumberArray[i])
+        }
+    }
+
+    return result.join('')
+}
+export function toFullPhoneNumber(phoneNumber, countryCode) {
+    return `${countryCode}${phoneNumber}`
+}

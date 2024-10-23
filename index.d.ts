@@ -11,4 +11,9 @@ declare module 'hajjtravel-utils' {
     export function phoneToUI(phone: string, mask: string): string;
     export function groupBy(arr: any[], key: string): Object;
     export function sleep(duration: number): Promise<any>;
+    /**
+     * Получаем только номер без страны
+     */
+    export function getPhoneNumber(fullPhoneNumber: string, countryCode: string): string;
+    export function toFullPhoneNumber(phoneNumber: string, countryCode: string): string;
 }
