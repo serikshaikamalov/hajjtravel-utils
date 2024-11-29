@@ -76,7 +76,11 @@ export const objectToPlain = (obj, parent = "", result = {}) => {
         }
         if (Array.isArray(v)) {
             result[`${k}`] = v
-        } else if (typeof v == "object") {
+        }
+        if (v instanceof FileList) {
+            result[`${k}`] = v
+        }
+        else if (typeof v == "object") {
             return objectToPlain(v, k, result)
         } else {
             result[`${k}`] = v
